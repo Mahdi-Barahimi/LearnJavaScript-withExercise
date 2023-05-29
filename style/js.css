@@ -1,0 +1,1013 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    /* overflow-x: hidden; */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+hr {
+    border: 1px solid #ddd;
+}
+button {
+    cursor: pointer;
+}
+button:active {
+    border: 1px solid #8f8 !important;
+}
+/* ---------------- h1: start of page */
+#js {
+    margin-top: 84px;
+}
+/* ---------------- Light mode / Dark mode */
+.dark, .dark input, .dark button:not(.prev, .next), .dark select, .dark .todo, .dark .modal {
+    background-color: #222 !important;
+    color: #fff !important;
+}
+.dark hr {
+    border: 1px solid #555;
+}
+.dark .menu {
+    background-color: #333;
+}
+.dark nav {
+    background-color: #444 !important;
+}
+.dark ul li a {
+    color: #eee !important;
+}
+.dark .bg-change {
+    background: #333 !important;
+}
+
+.dark .txt-color-change a {
+	color: #8f8 !important;
+}
+.dark input, .dark button:not(.prev, .next), .dark select {
+    background-color: #333 !important;
+    color: #fff !important;
+    border: 1px solid wheat;
+    background-color: #555 !important;
+}
+.dark a {
+    color: wheat;
+}
+/* ---------------- login 1 */
+.message {
+    display: none;
+    padding: 20px;
+    position: absolute;
+    left: 12%;
+    border-radius: 30px;
+}
+.form {
+    width: 10%;
+}
+/* ---------------- login 2 & login 3 */
+.input-check {
+    display: none;
+}
+/* ---------------- btn "change" */
+#change-btn {
+    margin: 10px 20px;
+    transform: scale(1.5);
+}
+.blue {
+    color: blue;
+}
+.small {
+    transform: scale(1) !important;
+}
+.backOrange {
+    background-color: orange;
+}
+/* ---------------- weather project */
+#weather-box {
+    font-family: impact;
+    width: 100%;
+    height: 105vh;
+    background-image: url(../pictures/js/Backgrounds/back\ 1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding-top: 200px;
+    transition: 1s;
+}
+.weather-elements {
+    border-radius: 20px;
+    width: 30%;
+    background-color: #000000b3;
+    margin: 0 auto;
+    padding: 20px;
+}
+.weather-elements *:not(.weather-inputs) {
+    margin-top: 20px;
+}
+.weather-inputs {
+    text-align: center;
+}
+#search-city-weather {
+    font-family: impact;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 10px;
+    height: 50px;
+    width: 75%;
+    background-color: #54545467;
+    color: white;
+    margin-right: 10px;
+}
+#search-weather {
+    font-family: impact;
+    text-align: center;
+    height: 55px;
+    width: 55px;
+    border-radius: 100%;
+    background-color: #54545467;
+    color: white;
+}
+.weather span, .error {
+    display: block;
+    margin-left: 10px;
+}
+.city, .temp {
+    font-size: 40px;
+}
+.des, .humidity, .wind-speed {
+    font-size: 20px;
+}
+.error {
+    display: none;
+}
+.loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+}
+.weather.loading:after {
+    visibility: visible;
+    content: "Loading...";
+    position: absolute;
+    top: 0;
+    left: 5px;
+}
+/* ---------------- converter */
+.converter {
+    height: 105vh;
+    padding: 10px;
+    background-color: #222;
+    text-align: center;
+}
+.converter * {
+    padding: 10px;
+    margin: 20px 0;
+}
+.converter-header {
+    margin-top: 100px;
+    color: wheat;
+    font-size: 36px;
+}
+.converter-result {
+    font-size: 22px;
+}
+.converter-input, .all-converter-btn {
+    background-color: #555;
+    color: wheat;
+}
+.converter-input {
+    border-radius: 10px;
+    font-size: 18px;
+    border: wheat 1px solid;
+}
+.converter-input::placeholder {
+    color: lightgray;
+}
+.converter-input:focus {
+    border: wheat 1px solid;
+    outline: 0;
+}
+.all-converter-btn:active {
+    background-color: wheat;
+    color: #555;
+}
+/* ---------------- exercise keydown */
+#keydown-information {
+    color: black !important;
+    background-color: #fffff0;
+    text-align: center;
+    min-height: 100vh;
+	height: max-content;
+}
+.span-text {
+    color: gray;
+    font-size: 12px;
+}
+#keydown-information p {
+    margin: 150px 0 200px 0;
+    font-size: 50px;
+    font-weight: bolder;
+}
+#key-informations {
+    display: none;
+}
+.key-information-box {
+    display: inline-block;
+    width: 300px;
+    border: 5px solid blueviolet;
+    border-radius: 25px;
+    margin: 20px 40px;
+}
+.key-information-box:last-child {
+    margin-bottom: 100px;
+}
+.head-information {
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 10px;
+    background-color: blueviolet;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: violet;
+}
+.key-information {
+    font-size: 35px;
+    padding: 30px 20px;
+}
+/* ---------------- exercise ep 142 debug : show password */
+.form {
+    width: 300px;
+}
+
+.form .form-element {
+    position: relative;
+}
+
+.form .form-element input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #888;
+    background: #f5f5f5;
+    box-sizing: border-box;
+    border-radius: 50px;
+    outline: none;
+    text-indent: 10px;
+}
+
+.form .form-element .toggle-password {
+    background-color: red;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 3px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form .form-element .toggle-password.active i.fa-eye {
+    display: none;
+}
+.form .form-element .toggle-password.active i.fa-eye-slash {
+    display: inline;
+}
+.form .form-element .toggle-password i.fa-eye-slash {
+    display: none;
+}
+/* ---------------- exercise ep 144: todoList */
+.container1 {
+    max-width: 400px;
+    margin-top: 90px;
+}
+.search i {
+    position: absolute;
+}
+.search {
+    position: relative;
+}
+.icon {
+    padding: 10px;
+    left: 0;
+}
+.input-field {
+    text-align: center;
+}
+
+.form-control1,
+.form-control1:focus {
+    color: #fff;
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+}
+.todos li {
+    background: #080;
+}
+.delete {
+    cursor: pointer;
+    background-color: maroon;
+    padding: 3px;
+}
+.filtered{
+    display: none !important;
+}
+/* ---------------- exercise ep 150: right click menu */
+.context-menu { 
+    z-index: 101;
+    position: absolute;
+} 
+.menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background: #f2f4f6;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
+    padding: 10px 0;
+}
+.menu > li > a {
+    font: inherit;
+    border: 0;
+    padding: 10px 30px 10px 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: unset;
+    color: #000;
+    font-weight: 500;
+    transition: 0.5s linear;
+    -webkit-transition: 0.5s linear;
+    -moz-transition: 0.5s linear;
+    -ms-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+}
+.menu > li > a:hover {
+    background:#fff;
+    color: #4b00ff;
+}
+.menu > li > a > i {
+    padding-right: 10px;
+}
+.menu > li.trash > a:hover {
+    color: red;
+}
+/* ---------------- loader css */
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightgray;
+}
+.loader > img {
+    width: 100px;
+}
+.loader.hidden {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/* touch events */
+#touchEvents {
+    width: 150px;
+    height: 150px;
+    background-color: pink;
+    color: green;
+}
+/* ---------------- exercise ep 162: show length */
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to top, #56e2d7 0%, #58cff1 100%);
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+}
+.wrapper form{
+    height: 55px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+}
+.wrapper form i{
+    position: absolute;
+    width: 55px;
+    text-align: center;
+    font-size: 23px;
+    color: #c4c4c4;
+    pointer-events: none;
+}
+.wrapper form input:valid ~ i{
+    color: #58cff1;
+}
+.wrapper form input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 0 50px 0 45px;
+    font-size: 20px;
+    caret-color: #58cff1;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.1s ease;
+}
+.wrapper form input::selection{
+    color: #fff;
+    background: #58cff1;	
+}
+.wrapper form input:focus,
+.wrapper form input:valid{
+    border-color: #58cff1;
+}
+.wrapper form input::placeholder{
+    color: #c4c4c4;
+}
+.wrapper form .counter{
+    position: absolute;
+    right: 3px;
+    width: 55px;
+    font-size: 20px;
+    color: #c4c4c4;
+    text-align: center;
+    border-left: 1px solid #d8d8d8;
+    pointer-events: none;
+}
+.wrapper form input:valid ~ .counter{
+    color: #58cff1;
+    border-color: #58cff1;
+}
+/* ---------------- exercise ep 164: show modal and blur background */
+.section-modal {
+    background-image: url("../pictures/js/Backgrounds/modal-background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+.center{
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.h1-modal {
+    text-align: center;
+    font-size: 50px;
+    margin: 40px;
+    text-transform: capitalize;
+}
+#modalBtn {
+    margin: 0 auto;
+    height: 60px;
+    width: 500px;
+    max-width: 100%;
+    background: #5454ff;
+    border: none;
+    border-radius: 6px;
+    font-size: 25px;
+    color: #000;
+    cursor: pointer;
+}
+
+.modal-parent{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: none;
+}
+.modal{
+    border: 3px solid #5454ff;
+    background: white;
+    width: 70%;
+    max-height: 50vh;
+    overflow: auto;
+    padding: 30px;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    position: relative;
+    animation: 0.5s drop;
+}
+@keyframes drop {
+    0%{
+        top: -100px;
+    }
+    100%{
+        top: 50%;
+    }
+}
+.X{
+    color: #5454ff;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    font-size: 40px;
+    cursor: pointer;
+}
+.section-modal {
+    transition: 2s;
+}
+/* ---------------- scroll */
+.scroll {
+    margin: 20px auto;
+    width: 300px;
+    height: 300px;
+    overflow: auto;
+    background-color: #ccc;
+}
+/* ---------------- exercise ep 171: fixed navbar to scroll */
+#mainNav .logo img {
+	height: 84px;
+	transition: height 0.4s;
+}
+
+#mainNav {
+	display: flex;
+    z-index: 100;
+	justify-content: space-between;
+	padding:  0px 16px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	background-color: #ddd;
+	transition: background 0.4s;
+}
+#mainNav ul {
+    list-style: none;
+	display: flex;
+	align-items: center;
+	width: 400px;
+	justify-content: space-around;
+}
+
+#mainNav ul li a {
+	color: #333;
+	font-weight: 500;
+    text-decoration: none;
+	transition: color 0.4s;
+}
+
+.bg-change {
+    background: #eee !important;
+}
+
+.txt-color-change a {
+	color: #080 !important;
+}
+/* ---------------- scrollTo and scrollBy methods */
+#go-up, #go-100 {
+    height: 75px;
+    width: 75PX;
+    border-radius: 100%;
+    background-color: #333;
+    color: #ccc;
+}
+.go-fixed {
+  position: fixed;
+  bottom: 25px;
+  z-index: 50;
+}
+.go-up-fixed{
+    right: 25px;
+}
+.go-100-fixed{
+    right: 125px;
+}
+/* ---------------- drag and drop */
+.drag {
+    color: red;
+    font-size: 24px;
+}
+.drop {
+    width: 150px;
+    height: 200px;
+    border: 5px solid lightgreen;
+}
+.drop * {
+    color: green;
+}
+/* ---------------- exercise ep 184: todo drag and drop */
+.todo-container {
+    overflow: auto;
+    max-width: 100%;
+    margin: auto;
+    width: 1000px;
+    height: 80vh;
+    display: flex;
+}
+.status {
+    width: 25%;
+    background-color: #f3f3f3;
+    position: relative;
+    padding: 60px 1rem 0.5rem;
+}
+.status:nth-child(even) {
+    background-color: #e9e9e96b;
+}
+.status h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #343434;
+    color: #f3f3f3;
+    margin: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+#add_btn {
+    padding: 0.5rem 1rem;
+    background-color: #ccc;
+    outline: none;
+    border: none;
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#add_btn:hover {
+    background-color: #aaa;
+}
+.todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: #fff;
+    box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
+      rgba(15, 15, 15, 0.1) 0px 2px 4px;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+.todo .close {
+    position: absolute;
+    right: 1rem;
+    top: 0rem;
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+}
+.todo .close:hover {
+    color: #343444;
+}
+
+  /* modal */
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.addTodoModal {
+    width: 450px;
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: top 0.3s ease-in-out;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    z-index: 2;
+    background-color: #fff;
+}
+.addTodoModal.active {
+    top: 20%;
+}
+.addTodoModal .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.addTodoModal .body {
+    padding: 0.75rem;
+}
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+#overlay.active {
+    display: block;
+}
+#todo_input,
+#todo_submit {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    margin: 0.25rem;
+}
+#todo_submit {
+    background-color: #4caf50;
+    color: #f3f3f3;
+    font-size: 1.25rem;
+    border: none;
+    cursor: pointer;
+}
+/* ---------------- animation events in js: animationstart, animationiteration, animationend */
+#animationDiv {
+    position: relative;
+    width: 300px;
+    height: 120px;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(0, 41, 88);
+    color: orangered;
+    text-align: center;
+}
+@keyframes borderAnimation {
+    0%{left: 0;}
+    50%{left: 300px;}
+    100%{left: 0;}
+}
+/* ---------------- exercise ep 195: change brightness with change range */
+.filter-container {
+    background:url(../pictures/js/Backgrounds/back\ 4.jpg) no-repeat center;
+    background-size:cover;
+    
+    min-height:100vh;
+    
+    display:flex;
+    align-items:center;
+    justify-content:center;
+ }
+ 
+ .brightness-box {
+    width:400px;
+    height:60px;
+    
+    background:#f9f9f9;
+    
+    border-radius:8px;
+    
+    padding:0 20px;
+ 
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+ }
+ 
+ .brightness-box i {
+    margin:0 10px;
+ }
+ 
+ #range {
+    width:100%;
+    height:3px;
+        
+    background:#0a85ff;
+    
+    outline:none;
+ }
+ 
+ #range::-webkit-slider-thumb {
+    -webkit-appearance:none;
+    
+    background:#333;
+    
+    width:22px;
+    height:22px;
+    
+    border-radius:50%;
+    
+    cursor:pointer;
+ }
+ /* ---------------- get all styles of elements with getComputedStyle() */
+ #divStyles {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: 20px;
+    background-color: #0b0;
+    color: maroon;
+ }
+  /* ---------------- exercise ep 200: image slider change with src */
+ .container-slider {
+    margin: 50px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+.slider {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    position: relative;
+    z-index: 3;
+    top: 20%;
+    box-shadow: 0 0 0px 25px rgb(65, 65, 65);
+    border-radius: 10px;
+    outline: 10px solid rgb(100, 100, 100);
+    overflow: hidden;
+}
+.slider-item,
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+.prev, .next{
+    border: 0 !important;
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 40px;
+    background-color: transparent; 
+    font-size: 23px;
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0,0.125) !important;
+    outline: none;
+    transition: all 230ms ease;
+    cursor: pointer;
+}
+.prev:hover, .next:hover{
+    background-color: rgba(0,0,0,0.25) !important;
+} 
+.prev:active, .next:active{
+    border: 0 !important;
+    background-color: rgba(0,0,0,0.5) !important;
+} 
+.prev{
+    left:0;
+}
+.next{
+    right: 0;
+}
+/* ---------------- exercise ep 202: BMI calculator */
+#bmi {
+    position: relative;
+    width: 100%;
+    height: 105vh;
+    background: linear-gradient(
+        135deg,
+        #00ffaa,
+        #00aeff
+    );
+}
+.bmi-container{
+    background-color: #ffffff;
+    padding: 40px 30px;
+    width: 50%;
+    min-width: 400px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    font-family: 'Poppins',sans-serif;
+    box-shadow: 25px 25px 30px rgba(0,0,0,0.15);
+}
+.bmi-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+.bmi-row span{
+    font-weight: 500;
+}
+.bmi-input[type="range"]{
+    width: 70%;
+    height: 3.5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #dcdcdc;
+    border-radius: 3px;
+    outline: none;
+}
+.bmi-input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: #1c1c1c;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#bmi-result{
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #0be881;
+}
+#bmi-category{
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+/* ---------------- set and get css variables in js */
+:root {
+    --var-color: red;
+}
+#css-var {
+    color: var(--var-color);
+}
+/* ---------------- exercise ep 215: Digital clock */
+.background-clock {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #8052ec,
+        #d161ff
+    );
+}
+.clock{
+    max-width: 100%;
+    width: 550px;
+    height: 150px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.clock div{
+    position: relative;
+    background-color: #ffffff;
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 60px;
+    color: #202020;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    letter-spacing: 3px;
+}
+.clock span{
+    font-weight: bolder;
+    font-size: 60px;
+    color: #ffffff;
+}
+/* ---------------- exercise ep 217: Text Generator */
+#result-text-generator {
+    margin: 20px 250px 10px 20px;
+    text-align: justify;
+    float: right;
+    width: 50%;
+    min-height: 100px;
+    background-color: blueviolet;
+    border: 2px solid blueviolet;
+    padding: 14px 16px;
+}
+/* ---------------- append in html with "insertAdjacentHTML(position, text);" positions: beforebegin, afterbegin, beforeend, afterend. */
+.ulForInsertLi {
+    width: max-content;
+    margin: 20px;
+    color: black;
+}
+.ulForInsertLi * {
+    padding: 5px 10px;
+}
+.ulForInsertLi div:first-child {
+    background-color: skyblue;
+}
+#middleLi {
+    background-color: aquamarine;
+}
+.ulForInsertLi div:last-child {
+    background-color: lightsalmon;
+}

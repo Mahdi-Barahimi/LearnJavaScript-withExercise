@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../style/icofont.min.css" />
+    <link rel="stylesheet" href="../style/js.css">
+    <title>js C to F</title>
+</head>
+<body id="body">
+    <h1 id="js">js</h1>
+    <ul>
+        <li class="list-item">Home</li>
+        <li class="list-item">Shop</li>
+        <li class="list-item">About</li>
+        <li class="list-item">Contact</li>
+    </ul>
+    <hr>
+    <input type="text" id="input" value="reAct">
+    <select id="select">
+        <option id="d22" value="tehran">tehran</option>
+        <option value="isfahan" selected>isfahan</option>
+        <option value="shiraz">shiraz</option>
+    </select>
+    <hr>
+    <p>exercise ep 108: change pic with btn</p>
+    <button id="mode-btn">Dark Mode</button>
+    <img src="../pictures/js/Light-Dark-Mode/sun.png" alt="Mode pic" id="mode-pic" width="50px" height="50px">
+    <hr>
+    <p>exercise ep 109: check validation data with onclick</p>
+    <div>login page 1
+        <span id="message" class="message">message</span>
+        <div class="form">
+            <label for="username">username: </label>
+            <input type="text" id="username">
+            <br>
+            <span>12 character or more</span>
+            <br><br>
+            <label for="password">password: </label>
+            <input type="password" id="password">
+            <br>
+            <span>8 character or more</span>
+            <br><br>
+            <input type="submit" id="submit" onclick="login()">
+        </div>
+    </div>
+    <hr>
+    onkeydown<input type="text" onkeydown="onkeyEvents()">
+    onkeypress<input type="text" onkeypress="onkeyEvents()">
+    onkeyup<input type="text" onkeyup="onkeyEvents()">
+    <hr>
+    <p>exercise ep 111: check validation data with onkeyup</p>
+    <div class="form">login page 2
+        <br>
+        <label for="username">username: </label>
+        <input type="text" id="username2" onkeyup="onkeyUsernameLogin2()">
+        <br>
+        <span id="usernameCheck" class="input-check">12 character or more</span>
+        <br>
+        <label for="password">password: </label>
+        <input type="password" id="password2" onkeyup="onkeyPasswordLogin2()">
+        <br>
+        <span id="passwordCheck" class="input-check">8 character or more</span>
+    </div>
+    <hr>
+    onfocus and onblur<input type="text" onfocus="onFocus()" onblur="onBlur()">
+    <hr>
+    <p>exercise ep 113: check validation data with onblur</p>
+    <div class="form">login page 3
+        <br>
+        <label for="username">username: </label>
+        <input type="text" id="username3" onblur="blurUsernameLogin3()">
+        <br>
+        <span id="usernameCheckBlur" class="input-check">12 character or more</span>
+        <br>
+        <label for="password">password: </label>
+        <input type="password" id="password3" onblur="blurPasswordLogin3()">
+        <br>
+        <span id="passwordCheckBlur" class="input-check">8 character or more</span>
+    </div>
+    <hr>
+    <button ondblclick="onDblClick()">double click</button>
+    <hr>
+    <button id="add-event-btn">click event</button>
+    <hr>
+    <button class="small" id="change-btn">change</button>
+    <hr>
+    <p>exercise ep 117: change backgroundcolor to random color</p>
+    random backgroundcloro every 5s: <button id="random-back-color">OFF</button>
+    <hr>
+    <select id="select-onchange">
+        <option value="" hidden selected>select</option>
+        <option value="Iran">Iran</option>
+        <option value="USA">USA</option>
+        <option value="Iraq">Iraq</option>
+    </select>
+    <hr>
+    exercise ep 120: select country then select city
+    <form action="">
+        <select id="select-country" required>
+            <option value="" hidden selected>select country</option>
+            <option value="Iran">Iran</option>
+            <option value="USA">USA</option>
+            <option value="Iraq">Iraq</option>
+        </select>
+        <select id="select-city" required>
+            <option value="" hidden selected>select city</option>
+        </select>
+        <input type="submit">
+    </form>
+    <hr>
+    <p>exercise ep 122: weather. cities: tehran, esfahan & shiraz</p>
+    <div id="weather-box">
+        <div class="weather-elements">
+            <div class="weather-inputs">
+                <input type="search" id="search-city-weather">
+                <button type="submit" id="search-weather">search</button>
+            </div>
+            <span class="error">Not find!</span>
+            <div class="weather loading">
+                <span class="city">weather in ...</span>
+                <span class="temp">00c</span>
+                <span class="des">des</span>
+                <span class="humidity">humidity: 50%</span>
+                <span class="wind-speed">wind speed: 6.2 km/h</span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p>exercise ep 127: convert C to F and F to C</p>
+    <div class="converter">
+        <span class="span-text">text</span>
+        <h1 class="converter-header">C to F converter</h1>
+        <input type="text" class="converter-input" placeholder="C">
+        <br>
+        <span class="converter-result"></span>
+        <br>
+        <button class="all-converter-btn converter-convert">Convert</button>
+        <button class="all-converter-btn converter-reset">Reset</button>
+        <button class="all-converter-btn converter-change">Change</button>
+    </div>
+    <hr>
+    <span id="spanElem" class="spanElemClass" customAttribute="custom attribute">Test properties and attribute of HTML elements</span>
+    <hr>
+    <span id="spanElem2" class="spanElemClass">test 'hasAttribute' and 'removeAttribute'</span>
+    <hr>
+    <button id="btnElem">click</button>
+    <hr>
+    <form id="test-form-submit">
+        <input type="submit">
+    </form>
+    <hr>
+    <button id="btnEvent">click</button>
+    <input type="text" id="inpEvent">
+    <hr>
+    <form id="formEvent">
+        <input id="inpEvent2" type="text">
+        <input type="submit">
+        <a id="linkEvent" target="_blank" href="google.com">BlankLink go to google</a>
+    </form>
+    <hr>
+    <p>exercise ep 137: keydown and give result</p>
+    <div id="keydown-information">
+        <span class="span-text">text</span>
+        <p id="key-acci">Press any key to get the JavaScript event keycode</p>
+        <div id="key-informations">
+            <div class="key-information-box">
+                <div class="head-information">event.key</div>
+                <div class="key-information" id="event.key"></div>
+            </div>
+            <div class="key-information-box">
+                <div class="head-information">event.location</div>
+                <div class="key-information" id="event.location"></div>
+            </div>
+            <div class="key-information-box">
+                <div class="head-information">event.wich</div>
+                <div class="key-information" id="event.which"></div>
+            </div>
+            <div class="key-information-box">
+                <div class="head-information">event.code</div>
+                <div class="key-information" id="event.code"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <hr>
+    <button id="btn-node">click and check the logs</button>
+    <!-- -------------------------------- -->
+	<hr>
+	<div id="div-parent">
+		div <br>
+		<button id="button-child1"><a href="#">click1 & check logs</a></button> <br>
+		<button id="button-child2">click2 & check logs</button> <br>
+		<button id="button-child3">click3 & check logs</button> <br>
+		<button id="button-child4">click4 & check logs</button> <br>
+		<button id="button-child5">click5 & check logs</button> <br>
+		<button id="button-child6">click6 & check logs</button> <br>
+		<button id="button-child7">click7 & check logs</button> <br>
+		<button id="button-child8">click8 & check logs</button> <br>
+		<button id="button-child9">click9 & check logs</button> <br>
+		<button id="button-child10">click10 & check logs</button> <br>
+		<button id="button-child11">click11 & check logs</button> <br>
+		<button id="button-child12">click12 & check logs</button> <br>
+		<button id="button-child13">click13 & check logs</button> <br>
+		<button id="button-child14">click14 & check logs</button>
+		<br> /div
+	</div>
+    <hr>
+    <p>debug exercise ep 142: show password. click on right of input for show/Hide the password</p>
+    <div >
+        <div class="form">
+          <div class="form-element">
+            <input type="password" id="password-field" />
+            <div class="toggle-password">
+              <i class="fa fa-eye"></i>
+              <i class="fa fa-eye-slash"></i>
+            </div>
+          </div>
+        </div>
+    </div>
+    <hr>
+    <h1 id="removeElement">remove this</h1>
+    <button id="removeH1">remove H1</button>
+    <ul>click and remove li
+        <li><a href="#" class="removeLi">Home</a></li>
+        <li><a href="#" class="removeLi">Download</a></li>
+        <li><a href="#" class="removeLi">Services</a></li>
+        <li><a href="#" class="removeLi">About</a></li>
+    </ul>
+    <hr>
+    <div class="container1">
+        exercise ep 144: todoList
+        <ul class="list-group todos mx-auto text-light">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Do yoya</span>
+                <i class="fa fa-trash-o delete"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>50 pushups</span>
+                <i class="fa fa-trash-o delete"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Read Book Novel</span>
+                <i class="fa fa-trash-o delete"></i>
+            </li>
+        </ul>
+        <form class="add text-center my-4" autocomplete="off">
+            <label class="text-light">
+                Add New Todo...
+            </label>
+            <input type="text" class="form-control1 m-auto" name="add"/>
+        </form>
+    </div>
+    <hr>
+    <p>control right click. check the logs</p>
+    <button id="rightClick">left/right click</button>
+    <hr>
+    <p>blocked cut, copy and paste event in this textarea. check the logs</p>
+    <textarea id="blockCCP" cols="30" rows="10">try to cut, copy and paste the text</textarea>
+    <hr>
+    <p>exercise ep 150: script for right click menu</p>
+    <div id="contextMenu" class="context-menu" style="display: none;"> 
+        <ul class="menu"> 
+            <li class="share"><a href="#"><i class="fa fa-share" aria-hidden="true"></i> Share</a></li> 
+            <li class="rename"><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Rename</a></li> 
+            <li class="link"><a href="#"><i class="fa fa-link" aria-hidden="true"></i> Copy Link Address</a></li> 
+            <li class="copy"><a href="#"><i class="fa fa-copy" aria-hidden="true"></i> Copy to</a></li> 
+            <li class="paste"><a href="#"><i class="fa fa-paste" aria-hidden="true"></i> Move to</a></li> 
+            <li class="download"><a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download</a></li> 
+            <li class="trash"><a href="#"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li> 
+        </ul> 
+    </div>
+    <hr>
+    <p>onloade event. image load -> 'loaded' in the log.</p>
+    <img id="imageOnload" src="" width="100px" height="100px" alt="background image">
+    <hr>
+    <p>exercise ep 155: hide the loader when all of page load. please reload</p>
+    <div class="loader">
+        <img src="../pictures/js/loader/loading.gif" alt="Loading..." />
+    </div>
+    <hr>
+    <button id="setEventForRemove">log: 'click'</button>
+    <button id="removeSetEvent">remove event</button>
+    <hr>
+    <textarea id="onselectEvent" cols="30" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum laudantium, voluptas blanditiis libero magnam, nesciunt obcaecati et voluptatibus inventore exercitationem deleniti excepturi fuga ea odit, quos repellat. Tempora, commodi hic!</textarea>
+    <hr>
+    <p id="touchEvents">touch! test touch events</p>
+    <hr>
+    <p>exercise ep 162: show length</p>
+    <div class="wrapper">
+        <form action="#">
+            <input id="showLength" type="text" spellcheck="false" placeholder="username" maxlength="19" required>
+            <i class="uis uis-at"></i>
+            <span class="counter">19</span>
+        </form>
+    </div>
+    <hr>
+    <p>exercise ep 164: show modal and blur background</p>
+    <section class="section-modal">
+        <div class="center">
+          <h1 class="h1-modal">click the button below to pop up a Window!</h1>
+          <button id="modalBtn" type="button">Click for modal</button>
+        </div>
+    </section>
+    <div class="modal-parent">
+        <div class="modal">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ulorem lomre t labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <span class="X">&times;</span>
+        </div>
+      </div>
+    <hr>
+    <div class="scroll">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis doloribus labore facere, nobis odit tenetur explicabo ipsa
+        impedit dolores est corporis ad! Accusamus et omnis aliquam quo tempora perferendis dolores eum. Tempore, maxime quia reiciendis,
+        laborum ipsum esse, deleniti enim officia at sequi pariatur quaerat aspernatur omnis cum? Laborum voluptas iste ex, distinctio
+        modi eius quod? Nesciunt veniam assumenda et recusandae cum provident quia ex vitae iure aliquam magnam enim amet inventore,
+        suscipit labore officiis impedit laboriosam architecto explicabo ea aperiam. Ullam assumenda molestias deserunt nemo distinctio
+        iure similique, iste, velit cupiditate ut expedita consequuntur porro modi, veniam quibusdam quaerat cum. Officia, natus atque et,
+        enim nam totam quas non labore reiciendis repudiandae, at iste corrupti culpa soluta. Repellendus necessitatibus quisquam sapiente
+        impedit optio? Aspernatur totam sunt, dolorem modi placeat molestias mollitia, ducimus voluptate provident porro minus nihil odio
+        quibusdam animi quis reiciendis atque recusandae veritatis voluptatibus dignissimos ut officia?
+    </div>
+    <hr>
+    <P>exercise ep 171: fixed navbar to scroll</P>
+    <nav id="mainNav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+  
+        <div class="logo">
+          <a href="#">
+            <img class="nav-logo" src="../pictures/js/logo/logo.png" alt="SabzLearn Logo" />
+          </a>
+        </div>
+      </nav>
+    <hr>
+    <p>scrollTo and scrollBy methods</p>
+    <button id="go-up">go up</button>
+    <button id="go-100">go down 100px</button>
+    <hr>
+    <p>data-set for HTML elements. click and check the log</p>
+    <button id="data-set-Ali" data-id="1045" data-name="Ali">Ali</button>
+    <button id="data-set-Mahdi" data-id="1251" data-name="Mahdi">Mahdi</button>
+    <hr>
+    <p>media methods and properties</p>
+    <audio id="audio-control" src="../audio/Nightingale.mp3" controls></audio>
+    <button id="audio-previous">previous</button>
+    <button id="audio-5">-5s</button>
+    <button id="audio-play">play</button>
+    <button id="audio-pause">pause</button>
+    <button id="audio-duration">click to show duration</button>
+    <button id="audio-rate-1x">1X</button>
+    <button id="audio-rate-2x">2X</button>
+    <button id="audio+5">+5s</button>
+    <button id="audio-next">next</button>
+    <br>
+    <span id="audio-currentTime">--:--</span>
+    <hr>
+    <p>
+        async and defer: for execution external js files.<br>
+        async execution js after finished download js file.<br>
+        defer execution js after finished download js file and waite for load all of HTML.
+    </p>
+    <hr>
+    <p>Drag AND Drop events</p>
+    <h1 class="drag" id="DragHTML" draggable="true">HTML</h1>
+    <h1 class="drag" id="DragCSS" draggable="true">CSS</h1>
+    <h1 class="drag" id="DragJS" draggable="true">JS</h1>
+    <div class="drop"></div>
+    <hr>
+    <p>exercise ep 184: todo drag and drop</p>
+    <!-- modal -->
+    <div class="addTodoModal" id="todo_form">
+        <div class="header">
+            <div class="title">Add Todo</div>
+            <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+            <input type="text" id="todo_input" />
+            <input type="submit" value="Add Todo" id="todo_submit" />
+        </div>
+        </div>
+      <!-- todo -->
+        <div class="todo-container">
+            <div class="status" id="no_status">
+                <h1>No Status</h1>
+                <button id="add_btn" data-target-modal="#todo_form">+ Add Todo</button>
+            </div>
+            <div class="status">
+                <h1>Not Started</h1>
+            </div>
+            <div class="status">
+                <h1>In Progress</h1>
+            </div>
+            <div class="status">
+                <h1>Completed</h1>
+            </div>
+    </div>
+  
+    <div id="overlay"></div>
+    <hr>
+    <p>local storage.</p>
+    <button id="setItemLocalStorage">set Item Local Storage: ID = 4857</button>
+    <button id="replaceItemLocalStorage">set Item Local Storage: ID = 7584 (replace)</button>
+    <button id="getItemLocalStorage">get Item Local Storage: ID</button>
+    <br>
+    <button id="setObjectLocalStorage">set Object Local Storage</button>
+    <button id="getObjectLocalStorage">get Object Local Storage</button>
+    <br>
+    <button id="clearLocalStorage">clear All of Local Storage</button>
+    <hr>
+    <p>
+        exercise ep 187: change mode and save in local storage <br>
+        exercise in top of the page. <a href="#js">go top</a>
+    </p>
+    <hr>
+    <p>animation events in js: animationstart, animationiteration, animationend.<br> check the logs</p>
+    <button id="animationBtn">click to start an animation</button><br>
+    <span id="animationSpn">animation done : 0 </span>
+    <div id="animationDiv">animation</div>
+    <hr>
+    <p>exercise ep 195: change brightness with change range</p>
+    <div class="filter-container">
+        <div class="brightness-box">
+            <i class="far fa-sun"></i>
+            <input type="range" id="range" min="10" max="100" value="100">
+            <i class="fas fa-sun"></i>
+        </div>
+    </div>
+    <hr>
+    <p>get all styles of elements with getComputedStyle(). check the logs</p>
+    <button onclick="styleFunction()">get styles</button>
+    <div id="divStyles" style="font-size: 26px;">Box</div>
+    <hr>
+    <button onclick="setStyleCssText()">set style</button>
+    <p id="takeStyleCssText">text to take style with style.cssText</p>
+    <hr>
+    <p>try and catch. check the logs</p>
+    <p id="showErrorP">error of "console.log(X);" -> </p>
+    <button onclick="takeError()">show error in dom not in console</button><br><br>
+    <input type="text" id="inputTestError"><button onclick="checkLength()">check value length</button>
+    <p id="checkLengthP">check : </p>
+    <hr>
+    <p>exercise ep 200: image slider change with src</p>
+    <div class="container-slider">
+        <div class="slider">
+            <div class="slider-item">
+                <img src="../pictures/js/Backgrounds/back 4.jpg" class="img-slider"/>
+            </div>
+            <button type="button" class="prev" ><i class="icofont icofont-ui-previous"></i></button>
+            <button type="button" class="next" ><i class="icofont icofont-ui-next"></i></button>
+        </div>
+    </div>
+    <hr>
+    <p>exercise ep 202: BMI calculator</p>
+    <div id="bmi">
+        <div class="bmi-container">
+            <div class="bmi-row">
+                <input type="range" class="bmi-input" min="20" max="200" value="20" id="weight">
+                <span id="weight-val">20 kg</span>
+            </div>
+            <div class="bmi-row">
+                <input type="range" class="bmi-input" min="100" max="250" value="100" id="height">
+                <span id="height-val">100 cm</span>
+            </div>
+    
+            <p id="bmi-result">20.0</p>
+            <p id="bmi-category">Normal weight</p>
+        </div>
+    </div>
+    <hr>
+    <p id="css-var">set and get css variables in js. check the logs</p>
+    <button id="set-css-var-color">change color p</button>
+    <hr>
+    <p>date object. check the logs and check the code line 1116</p>
+    <button onclick="dateObject()">click to get date</button>
+    <hr>
+    <p>exercise ep 215: Digital clock</p>
+    <div class="background-clock">
+        <div class="clock">
+            <div id="hour">00</div>
+            <span>:</span>
+            <div id="minute">00</div>
+            <span>:</span>
+            <div id="seconds">00</div>
+        </div>
+    </div>
+    <hr>
+    <h1 class="text-center mt-5 mb-5">exercise ep 217: Text Generator</h1>
+    <div class="text-generator-container">
+      <div class="row">
+        <!--Form Section-->
+        <div class="col-xl-6 mt-4 mt-xl-0">
+          <form class="form-inline" action="" id="form">
+            <label for="amount-paragraph">Paragraph Number: </label>
+            <input type="number" class="form-control mr-1 mb-1 mb-sm-0 ml-sm-2" name="amount-paragraph" id="amount-paragraph" placeholder="5" />
+            <button class="btn btn-primary">Generate</button>
+          </form>
+        </div>
+
+        <!--Result Section-->
+        <div class="col-xl-6">
+          <article class="mt-4 mt-xl-0" id="result-text-generator"></article>
+          <br clear="right">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p>resize the window and check the logs.</p>
+    <hr>
+    <p>more mouse events (check the logs):</p>
+    <p>mouseenter, mouseover, mousemove, mousedown, click, dblclick, contextmenu, mouseup, mouseleave, mouseout.</p>
+    <button id="mouseEvents"><br><br>enter, over, down, up, click, dblclick, contextmenu(rightClick), move, out, leave<br><br></button>
+    <hr>
+    <p>append in html with "insertAdjacentHTML(position, text);" positions: beforebegin, afterbegin, beforeend, afterend.</p>
+    <button id="insertLiBtn">
+        add<br>
+        a li inside a div before div of 'middle li'<br>
+        a li before 'middle li'<br>
+        a li after 'middle li'<br>
+        a li inside a div after div of 'middle li'.
+    </button>
+    <ul class="ulForInsertLi">
+        <div>
+            <li>first li</li>
+        </div>
+        <div id="middleLi">
+            <li>middle li*</li>
+        </div>
+        <div>
+            <li>last li</li>
+        </div>
+    </ul>
+    <script src="../js/js.js" async></script>
+    <script src="../js/js2.js" defer></script>
+</body>
+</html>
