@@ -1239,4 +1239,35 @@ usersArrayFragment.forEach(function (user) {
 })
 userUlTestFragment.appendChild(usersFragment);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
+// work with console methods
+function consoleMethod() {
+    let num1 = 2, num2 = 3;
+    console.clear();
+    console.log('\nsimple log');
+    console.log('\n%clog with style', 'color: violet; background-color: purple');
+    console.error('\ncustom error');
+    console.info('\ncustom info');
+    console.warn('\ncustom warning');
+    console.assert(num1 > num2, '\nsmall'); // show like error if false. not show if true.
+
+    let userObj = [
+        {id:1, name:'mahdi', age:20},
+        {id:2, name:'mohammad', age:21},
+        {id:3, name:'ali', age:22},
+    ]
+    console.table(userObj); // can use for obj and array
+
+    console.time('\ntime of do code between of time() and timeEnd()'); // you can set label for time() if you want but this most be same of timeEnd() label
+    for(let i = 0; i < 1000; i++) {
+        // code
+    }
+    console.timeEnd('\ntime of do code between of time() and timeEnd()'); // you can set label for timeEnd() if you want but this most be same of time() label
+
+    console.log('\nlog before group');
+    console.group('group label');
+    console.log('fits grouped log');
+    console.log('second grouped log');
+    console.log('third grouped log');
+    console.groupEnd('group label');
+    console.log('log after group\n');
+}
