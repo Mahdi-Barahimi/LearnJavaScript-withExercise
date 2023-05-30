@@ -1210,3 +1210,33 @@ insertLiBtn.addEventListener('click', function () {
     middleLi.insertAdjacentHTML("beforeend", "<li>li after 'middle li'</li>")
     middleLi.insertAdjacentHTML("afterend", "<div style='background-color: palegoldenrod'><li>li inside a div after div of 'middle li'</li></div>")
 })
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// work with delete (don't use for array)
+function deleteItemOfObj () {
+    let objForDelete = {
+        id: 1,
+        name: 'Madhi',
+        age: 18,
+    }
+    console.log('before delete age:', objForDelete);
+    console.log('delete result:', delete objForDelete.age);
+    console.log('after delete age:', objForDelete);
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// fragment and dom manipulation
+const userUlTestFragment = $.getElementById('userAddWithFragment');
+
+let usersArrayFragment = ['ali','akbar','matin','mahdi','mohammad'];
+
+let newUsersFragmentLi;
+let usersFragment = $.createDocumentFragment();
+
+usersArrayFragment.forEach(function (user) {
+    newUsersFragmentLi = $.createElement('li');
+    newUsersFragmentLi.innerHTML = user;
+
+    usersFragment.appendChild(newUsersFragmentLi);
+})
+userUlTestFragment.appendChild(usersFragment);
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// 
