@@ -15,6 +15,10 @@ const cartTotalPrice = $.querySelector('.cart-total-price');
 let addButtons = $.querySelectorAll('.shop-item-button');
 
 products.forEach(function (product) {
+    // refactor start
+
+
+    /*
     let newShopItem = $.createElement('div');
     newShopItem.classList.add('shop-item');
 
@@ -41,6 +45,11 @@ products.forEach(function (product) {
             newShopItem.append(newShopItemTitle, newShopItemImage, newShopItemDetails);
         newShopItemDetails.append(newShopItemPrice, newShopItemButton);
     shopItems.appendChild(newShopItem);
+    */
+
+    shopItems.insertAdjacentHTML('beforeend', '<div class="shop-item"><span class="shop-item-title" id="' + product.id + '">' + product.name + '</span><img class="shop-item-image" src="' + product.image + '"><div class="shop-item-details"><span class="shop-item-price">' + product.price + '</span><button class="btn btn-primary shop-item-button">ADD TO CART</button></div></div>')
+
+    // refactor end
 
     addButtons = $.querySelectorAll('.shop-item-button');
 })
