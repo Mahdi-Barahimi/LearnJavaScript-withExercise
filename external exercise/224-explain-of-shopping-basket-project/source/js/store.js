@@ -95,6 +95,7 @@ addButtons.forEach(function (button) {
                     button.classList.remove('btn-primary-disabled');
                     button.innerHTML = 'ADD TO CART';
                     products[targetProduct].status = 'readyToAdd';
+                    products[targetProduct].userCount = 1;
 
                     totalPriceCalculator();
                 })
