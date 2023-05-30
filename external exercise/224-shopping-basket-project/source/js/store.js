@@ -13,12 +13,10 @@ const shopItems = $.querySelector('.shop-items');
 const cartItems = $.querySelector('.cart-items');
 const cartTotalPrice = $.querySelector('.cart-total-price');
 let addButtons = $.querySelectorAll('.shop-item-button');
-
+// refactor for use fragment -------------------------------|
+let productsFragment = $.createDocumentFragment(); // -----|
+// -------------------------------------------------------|
 products.forEach(function (product) {
-    // refactor start
-
-
-    /*
     let newShopItem = $.createElement('div');
     newShopItem.classList.add('shop-item');
 
@@ -44,15 +42,19 @@ products.forEach(function (product) {
 
             newShopItem.append(newShopItemTitle, newShopItemImage, newShopItemDetails);
         newShopItemDetails.append(newShopItemPrice, newShopItemButton);
-    shopItems.appendChild(newShopItem);
-    */
-
-    shopItems.insertAdjacentHTML('beforeend', '<div class="shop-item"><span class="shop-item-title" id="' + product.id + '">' + product.name + '</span><img class="shop-item-image" src="' + product.image + '"><div class="shop-item-details"><span class="shop-item-price">' + product.price + '</span><button class="btn btn-primary shop-item-button">ADD TO CART</button></div></div>')
-
-    // refactor end
-
-    addButtons = $.querySelectorAll('.shop-item-button');
+    // refactor for use fragment -------------------------------|
+    productsFragment.appendChild(newShopItem); // -------------|
+    // -------------------------------------------------------|
+    
+    // refactor for use insertAdjacentHTML instant of append ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    // shopItems.insertAdjacentHTML('beforeend', '<div class="shop-item"><span class="shop-item-title" id="' + product.id + '">' + product.name + '</span><img class="shop-item-image" src="' + product.image + '"><div class="shop-item-details"><span class="shop-item-price">' + product.price + '</span><button class="btn btn-primary shop-item-button">ADD TO CART</button></div></div>') //----|
+    // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 })
+// refactor for use fragment --------------------------------|
+shopItems.appendChild(productsFragment); // ----------------|
+addButtons = $.querySelectorAll('.shop-item-button'); // --|
+// -------------------------------------------------------|
+
 addButtons.forEach(function (button) {
     button.addEventListener('click', function () {
         let targetProduct = products.findIndex(function(product) {
