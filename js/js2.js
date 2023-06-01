@@ -751,6 +751,12 @@ scrollDiv.onscroll = function (event) {
 // exercise ep 171: fixed navbar to scroll
 const fixedNavbar = $.getElementById('mainNav');
 const fixedNavLogo = $.querySelector('.nav-logo');
+$.addEventListener('load', function () {
+    if ($.documentElement.scrollTop > 0) {
+        fixedNavbar.classList.add('bg-change', 'txt-color-change');
+        fixedNavLogo.style.height = '64px';
+    }
+})
 $.addEventListener('scroll', function () {
     if ($.documentElement.scrollTop > 0) {
         fixedNavbar.classList.add('bg-change', 'txt-color-change');
@@ -1270,4 +1276,86 @@ function consoleMethod() {
     console.log('third grouped log');
     console.groupEnd('group label');
     console.log('log after group\n');
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////// BOM
+// window.inner window.outer 
+const clientSizeElem = $.getElementById('clientSize');
+function getSizeInformation() {
+    console.log('window.innerWidth: ', window.innerWidth);
+    console.log('window.innerHeight: ', window.innerHeight);
+
+    console.log('window.outerWidth: ', window.outerWidth);
+    console.log('window.outerHeight: ', window.outerHeight);
+
+    console.log('clientSizeElem.clientWidth: ', clientSizeElem.clientWidth);
+    console.log('clientSizeElem.clientHeight: ', clientSizeElem.clientHeight);
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// exercise ep 240: show Scroll (fixed to top of the page)
+const showScroll = $.getElementById('showScroll');
+window.addEventListener('scroll', function () {
+    let horizantalScroll = window.scrollY;
+    let bodyHeight = body.clientHeight;
+    let windowInnerHeight = window.innerHeight;
+
+    let scrollPercent = Math.round((horizantalScroll / (bodyHeight - windowInnerHeight)) * 100);
+
+    showScroll.style.width = scrollPercent + '%';
+})
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// window.screen
+function getScreenInfo() {
+    console.log(screen); // window.screen
+    console.log('screen.height: ', screen.height);
+    console.log('screen.availHeight: ', screen.availHeight);
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// window.history
+function historyInformation() {
+    console.log(history);
+    console.log('history.length', history.length);
+    console.group('more about history:');
+    console.log('history.back() : for go back');
+    console.log('history.forward() : for go forward');
+    console.log('history.go(number) : for go forward to number');
+    console.log('history.go(-number) : for go back to number');
+    console.log('history.go(0) : reload');
+    console.groupEnd('more about history:');
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// window.loaction
+function locationInformation() {
+    console.log(location);
+    console.log('location.href: ', location.href);
+    console.log('location.protocol: ', location.protocol);
+    console.log('location.hostname: ', location.hostname);
+    console.log('location.pathname: ', location.pathname);
+    console.log('location.search: ', location.search);
+    console.log('location.hash: ', location.hash);
+    console.log('for redirect: ', 'location.href = https://google.com');
+    console.log('for reload: ', 'location.href = location.href');
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// find user with location.search
+const targetUserSpan = $.getElementById('showTargetUser');
+let usersSearch = [
+    {id: 1, name: 'ali', age: 24},
+    {id: 2, name: 'amir', age: 26},
+    {id: 3, name: 'amin', age: 22},
+    {id: 4, name: 'reza', age: 24},
+]
+// bad way
+// location.search.slice(1).split('=')[1]
+
+// good way -----------------------------------------------------|
+let userIdParams = new URLSearchParams(location.search); // ----|
+let userId = userIdParams.get('userId'); // -------------------|
+// -----------------------------------------------------------|
+let targetUser = usersSearch.find(function (user) {
+    return user.id == userId;
+})
+if (targetUser) {
+    targetUserSpan.innerHTML = ' id: ' + targetUser.id + ' | name: ' + targetUser.name + ' | age: ' + targetUser.age;
+} else {
+    targetUserSpan.innerHTML = 'not finde!'
 }

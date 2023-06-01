@@ -87,7 +87,10 @@
     <hr>
     <button class="small" id="change-btn">change</button>
     <hr>
-    <p>exercise ep 117: change backgroundcolor to random color</p>
+    <p>
+        exercise ep 117: change backgroundcolor to random color
+        <span style="background-color: aquamarine; color: black; padding: 5px;">turn off dark mode</span>
+    </p>
     random backgroundcloro every 5s: <button id="random-back-color">OFF</button>
     <hr>
     <select id="select-onchange">
@@ -560,6 +563,32 @@
     <hr>
     <p>work with console methods</p>
     <button onclick="consoleMethod()">show console methods</button>
+    <hr>
+    <p>BOM</p>
+    <hr>
+    <p>get the window.innerWidth, window.innerHeight, window.outerWidth, window.outerHeight, div.clientWidth, div.clientHeight. check the logs</p>
+    <button onclick="getSizeInformation()">click</button>
+    <div id="clientSize">clientSize</div>
+    <hr>
+    <p>exercise ep 240: show Scroll (fixed to top of the page)</p>
+    <div id="showScroll"></div>
+    <hr>
+    <p>get window.screen (check logs)</p>
+    <button onclick="getScreenInfo()">get screen information</button>
+    <hr>
+    <p>get window.history (check logs)</p>
+    <button onclick="historyInformation()">get history information</button>
+    <hr>
+    <p>get window.location (check logs)</p>
+    <button onclick="locationInformation()">get loaction information</button>
+    <hr>
+    <p>find user with location.search (search id between 1 , 4)</p>
+    <form>
+        <label for="userId">search user with id: </label>
+        <input type="search" name="userId" id="userId">
+        <input type="submit" value="submit">
+    </form>
+    <span>target user: </span><span id="showTargetUser"></span>
     <script src="../js/js.js" async></script>
     <script src="../js/js2.js" defer></script>
 </body>

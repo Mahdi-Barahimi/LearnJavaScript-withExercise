@@ -27,16 +27,20 @@ button:active {
 .dark hr {
     border: 1px solid #555;
 }
-.dark .menu {
-    background-color: #333;
-}
 .dark nav {
     background-color: #444 !important;
 }
 .dark ul li a {
     color: #eee !important;
 }
-.dark .bg-change {
+.dark .bmi-container {
+    color: #333;
+}
+.dark #showScroll {
+    background-color: lime;
+    height: 70px;
+}
+.dark .bg-change, .dark .menu {
     background: #333 !important;
 }
 
@@ -359,7 +363,7 @@ button:active {
 /* ---------------- loader css */
 .loader {
     position: fixed;
-    z-index: 99;
+    z-index: 110;
     top: 0;
     left: 0;
     width: 100%;
@@ -882,7 +886,7 @@ button:active {
     );
 }
 .bmi-container{
-    background-color: #ffffff;
+    background-color: white;
     padding: 40px 30px;
     width: 50%;
     min-width: 400px;
@@ -1010,4 +1014,23 @@ button:active {
 }
 .ulForInsertLi div:last-child {
     background-color: lightsalmon;
+}
+/* ---------------- BOM get the size from window */
+#clientSize {
+    color: wheat;
+    background-color: midnightblue;
+    width: 150px;
+    height: 100px;
+    padding: 5px 10px;
+    margin: 5px 10px;
+    border: 5px solid maroon;
+}
+/* ---------------- exercise ep 240: show Scroll (fixed to top of the page) */
+#showScroll {
+    width: 0%;
+    height: 71px;
+    background-color: #0b0;
+    position: fixed;
+    top: 0;
+    z-index: 99;
 }
