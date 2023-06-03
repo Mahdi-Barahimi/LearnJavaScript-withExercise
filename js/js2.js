@@ -1333,7 +1333,13 @@ function locationInformation() {
     console.log('location.search: ', location.search);
     console.log('location.hash: ', location.hash);
     console.log('for redirect: ', 'location.href = https://google.com');
+    console.log('for reload: ', 'location.reload()');
     console.log('for reload: ', 'location.href = location.href');
+    console.log('assign (go to url: new page in history): ', "location.assign('https://google.com')");
+    console.log('replace (go to url: like replace the page. no new page): ', "location.replace('https://google.com')");
+}
+function reloadBtn () {
+    location.reload();
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // find user with location.search
@@ -1359,3 +1365,15 @@ if (targetUser) {
 } else {
     targetUserSpan.innerHTML = 'not finde!'
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// offline and online events
+const isOnlineH1 = $.getElementById('isOnlineH1');
+
+window.addEventListener('online', function () {
+    isOnlineH1.style.color = 'green';
+    isOnlineH1.innerHTML = 'Online';
+})
+window.addEventListener('offline', function () {
+    isOnlineH1.style.color = 'darkred';
+    isOnlineH1.innerHTML = 'Offline';
+})
