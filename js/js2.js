@@ -1377,3 +1377,4 @@ window.addEventListener('offline', function () {
     isOnlineH1.style.color = 'darkred';
     isOnlineH1.innerHTML = 'Offline';
 })
+///////////////////////////////////////////////////////////////////////////////////////////////////////
