@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../style/jsPro.css">
+
+    <title>js pro</title>
+</head>
+<body>
+    <p>
+        ep 256: if you create an HTML element with Id attribute, you have this with Id in js without save this with getElementById()<br>
+        id most be not same with js words like 'console'.
+    </p>
+    <span id="spanId">spanId.style.color = 'Green'</span>
+    <hr>
+    <p>
+        ep 257: more about console.<br>
+        you can write $ instant write document.querySelector<br>
+        you can write $$ instant write document.querySelectorAll<br>
+        you can select an element in Inspect and get it with $0<br>
+        you can have last result of code in console with $_<br>
+        you can enable or disable live changes in your page with document.designMode = 'on'/'off' or use document.body.contentEditable = true/false
+    </p>
+    <hr>
+    <p>options in addEventListener</p>
+    <button id="eventsOnceOption">once option: click and check logs</button>
+    <hr>
+    <p>event bubbling (from child to parent element)</p>
+    <div class="eventBubbling">div1
+        <div class="eventBubbling">div2
+            <div class="eventBubbling">div3</div>
+        </div>
+    </div>
+    <script src="../js/jsPro.js"></script>
+</body>
+</html>
