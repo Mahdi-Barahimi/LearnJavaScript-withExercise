@@ -1,6 +1,6 @@
 let searchInput = document.querySelector('input');
 let autocomBox = document.querySelector('.autocom-box');
-let searchDiv = document.querySelector('.search-input')
+let searchDiv = document.querySelector('.search-input');
 let suggestionFragmentLi = document.createDocumentFragment();
 let suggestionFromInput = '';
 let searchInputValue = searchInput.value;
