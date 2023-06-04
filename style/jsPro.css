@@ -1,9 +1,24 @@
-/* -------------------------------------- event bubbling (from child to parent element) */
-.eventBubbling {
+/* -------------------------------------- event Bubbling and event Capturing */
+.capturingBubbling {
+    background-color: lavender;
+}
+.bubbling, .capturing, .stopBubbling {
+    display: inline-block;
+    margin-left: 60px;
+}
+.eventBubbling, .eventCapturing, .stopEventBubbling {
     width: 175px;
     margin: 20px;
     padding: 5px;
+    border: 3px solid blue;
+    background-color: aqua;
+}
+.eventCapturing {
     border: 3px solid green;
-    background-color: white;
+    background-color: palegreen
+}
+.stopEventBubbling {
+    border: 3px solid peru;
+    background-color: gold;
 }
 /* -------------------------------------- */

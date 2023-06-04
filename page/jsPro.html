@@ -27,12 +27,34 @@
     <p>options in addEventListener</p>
     <button id="eventsOnceOption">once option: click and check logs</button>
     <hr>
-    <p>event bubbling (from child to parent element)</p>
-    <div class="eventBubbling">div1
-        <div class="eventBubbling">div2
-            <div class="eventBubbling">div3</div>
+    <div class="capturingBubbling">
+        event Bubbling and event Capturing: <br><br>
+        <div class="bubbling">
+            <p>event bubbling (from child to parent element). click and check log.</p>
+            <div class="eventBubbling">div1
+                <div class="eventBubbling">div2
+                    <div class="eventBubbling">div3</div>
+                </div>
+            </div>
+        </div>
+        <div class="capturing">
+            <p>event capturing (from parent to child element). click and check log.</p>
+            <div class="eventCapturing">div1
+                <div class="eventCapturing">div2
+                    <div class="eventCapturing">div3</div>
+                </div>
+            </div>
+        </div>
+        <div class="stopBubbling">
+            <p>stop event bubbling</p>
+            <div class="stopEventBubbling">div1
+                <div class="stopEventBubbling">div2
+                    <div class="stopEventBubbling">div3</div>
+                </div>
+            </div>
         </div>
     </div>
+    <hr>
     <script src="../js/jsPro.js"></script>
 </body>
 </html>
