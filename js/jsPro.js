@@ -192,20 +192,24 @@ const spreadSyntaxArrayBtn = () => {
 
     // for log each items without while, for, forEach, ...
     console.log('spreadSyntaxNumbers items:', ...spreadSyntaxNumbers);
-
+    
     // for contact two or more array
     console.log('spreadSyntaxNumbers items + 1000 + copySpreadSyntaxNumbers items ===>  ', ...spreadSyntaxNumbers, 1000, ...copySpreadSyntaxNumbers);
-
+    
     // use in function
     const spreadInFunction = (num1, num2, num3, num4, num5) => console.log('num1:', num1, 'num2:',num2, 'num3:',num3, 'num4:',num4, 'num5:',num5);
     spreadInFunction(...spreadSyntaxNumbers)
-
+    
     // test for objects
     let spreadSyntaxObject = {id: 1 , name: 'Mahdi', age: 22};
     let copySpreadSyntaxObject = {...spreadSyntaxObject};
     copySpreadSyntaxObject.age = 18;
     console.log('spreadSyntaxObject:', spreadSyntaxObject);
     console.log('copySpreadSyntaxObject update age to 18:', copySpreadSyntaxObject);
+
+    // for string
+    let str = 'sdtskjfdaiojasdklf'
+    console.log(...str);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // arguments and rest oprator
@@ -242,9 +246,78 @@ const restOpratorBtn = () => {
 // Array Destructuring
 const ArrayDestructuringBtn = () => {
     let userInformationDest = [1, 'Iran','Esfahan', 'Ali', 25, true, 4];
-    let [userID, , , userName, userAge, userMarried] = userInformationDest;
+    let [userID, , , userName, userAge, userMarried = false] = userInformationDest;
     console.log('userID:', userID);
     console.log('userName:', userName);
     console.log('userAge:', userAge);
     console.log('userMarried:', userMarried);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Object Destructuring
+const ObjectDestructuringBtn = () => {
+    let userInformationDest = {id: 1, country: 'Iran', city: 'Esfahan', name: 'Ali', age: 25, isMarried: true, familyMember: 4};
+    let {name: UserName, id, isMarried = false, age} = userInformationDest;
+    console.log('id:', id);
+    console.log('UserName:', UserName);
+    console.log('age:', age);
+    console.log('isMarried:', isMarried);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// template string (literal). use ${} for contact text or Math
+const templateStringBtn = () => {
+    let contactText = 'Test'
+    let literalText = `
+    This text is for : ${contactText}.
+    2 + 2 : ${2 + 2} .
+    Math.pow(2, 10): ${Math.pow(2, 10)} .
+    `
+    console.log(literalText.trim());
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// "for of" loop. can use for interable data like: array, string, arguments, HTML collection, ... . object not a interable data.
+const forOfLoopBtn = () => {
+    let numbers = [1, 50, 70, 90, 5, 40, 6];
+    for (let number of numbers) {
+        console.log(number);
+    }
+    
+    let str = 'Salam';
+    for (let char of str) {
+        console.log(char);
+    }
+    
+    function forOfArguments ()  {
+        for (let argument of arguments) {
+            console.log(argument);
+        }
+    }
+    forOfArguments('Mahdi', 'Mahdis', 'Mohammad');
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// "for in" loop. like "for of" but for objects.
+const forInLoopBtn = () => {
+    let object = {id: 1, name: 'Ali', age: 25}
+    for (let property in object) {
+        console.log(`user ${property}: ${object[property]}`);
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// string padding: padStart, padEnd
+const stringPadding = () => {
+    let phonNumber = '937 008 7721'
+    let phonNumberPadding = phonNumber.padStart(16, '+98 ')
+    console.log('phonNumber:', phonNumber);
+    console.log('phonNumberPadding:', phonNumberPadding);
+
+    let userName = 'Mahdi'
+    let userNamePadding = userName.padEnd(10, '-')
+    console.log('userName:', userName);
+    console.log('userNamePadding:', userNamePadding);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// numeric separator : separate digits with '_' .
+const numericSeparatorBtn = () => {
+    let computerPrice = 50_000_000
+    let postalPrice = 75_000
+    console.log("total price", computerPrice + postalPrice);
 }
