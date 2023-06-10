@@ -321,3 +321,43 @@ const numericSeparatorBtn = () => {
     let postalPrice = 75_000
     console.log("total price", computerPrice + postalPrice);
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// && and ||
+const andOrFunction = () => {
+    let andOrBoolean = true;
+    
+    andOrBoolean && console.log('andOrBoolean. (&&)');
+    !andOrBoolean && console.log('!andOrBoolean. (&&)');
+    
+    andOrBoolean || console.log('andOrBoolean. (||)');
+    !andOrBoolean || console.log('!andOrBoolean. (||)');
+
+    let newBoolean = andOrBoolean || false
+    console.log(newBoolean);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// modules : export , import
+// most write type="module" in the HTML file for Script Tag
+// for exporting can write 'export' word before of things or write "export { 'things you want export', }"
+// can export default with write "export default 'name'" and import this with write "import 'anyName' from 'address'"
+// for importing write "import { 'things you want import' } from 'address'"
+// for importing all of export things write "import * as 'name' from 'address'" and for use them write name.thingsName
+import defaultExportLet from './modules/modules.js'
+import * as allExportThings from './modules/modules.js'
+import { modulesLet, modulesFunction as logFunctionFromModules } from './modules/modules.js'
+const modulesFunctionBtn = () => {
+    console.log(defaultExportLet);
+    console.log(modulesLet);
+    logFunctionFromModules('sendWord');
+    console.log('import all:', allExportThings.modulesLet);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// type coercion: 1-implicit , 2-explicit
+const typeCoercionBtn = () => {
+    // implicit:
+    console.log(Boolean(0 == '0'));
+    // explicit
+    console.log(Number("0"), typeof(Number("0")));
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 

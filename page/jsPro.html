@@ -363,9 +363,69 @@
     <pre>
         let computerPrice = 50_000_000
         let postalPrice = 75_000
-        console.log("total price", computerPrice + postalPrice);    
+        console.log("total price", computerPrice + postalPrice);
     </pre>
     <button onclick="numericSeparatorBtn()">run it</button>
-    <script src="../js/jsPro.js"></script>
+    <hr>
+    <p>&& and ||</p>
+    <pre>
+        let andOrBoolean = true;
+        
+        andOrBoolean && console.log('andOrBoolean. (&&)');
+        !andOrBoolean && console.log('!andOrBoolean. (&&)');
+
+        andOrBoolean || console.log('andOrBoolean. (||)');
+        !andOrBoolean || console.log('!andOrBoolean. (||)');
+        
+        let newBoolean = andOrBoolean || false
+        console.log(newBoolean);
+    </pre>
+    <button onclick="andOrFunction()">run it</button>
+    <hr>
+    <p>
+        modules : export , import <br>
+        most write type="module" in the HTML file for Script Tag <br>
+        for exporting can write 'export' word before of things or write "export { 'things you want export', }" <br>
+        can export default with write "export default 'name'" and import this with write "import 'anyName' from 'address'" <br>
+        for importing write "import { 'things you want import' } from 'address'" <br>
+        for importing all of export things write "import * as 'name' from 'address'" and for use them write name.thingsName
+    </p>
+    <p>in modules.js file</p>
+    <pre>
+        let modulesLetDefault = 'this is a message from modulesLet in modules.js file and export with export default'
+        export let modulesLet = 'this is a message from modulesLet in modules.js file'
+        
+        function modulesFunction (word) {
+            console.log('this is a log from modulesFunction in modules.js file. you send word: \''+ word +'\'');
+        }
+        
+        export { modulesLet, modulesFunction }
+        export default modulesLetDefault;
+    </pre>
+    <p>in jsPro.js file</p>
+    <pre>
+        import defaultExportLet from './modules/modules.js'
+        import * as allExportThings from './modules/modules.js'
+        import { modulesLet, modulesFunction as logFunctionFromModules } from './modules/modules.js'
+        const modulesFunctionBtn = () => {
+            console.log(defaultExportLet);
+            console.log(modulesLet);
+            logFunctionFromModules('sendWord');
+            console.log('import all:', allExportThings.modulesLet);
+        }
+    </pre>
+    <button onclick="modulesFunctionBtn()">run it</button>
+    <hr>
+    <p>type coercion: 1-implicit , 2-explicit</p>
+    <p>implicit</p>
+    <pre>
+        console.log(Boolean(0 == '0'));
+    </pre>
+    <p>explicit</p>
+    <pre>
+        console.log(Number("0"), typeof(Number("0")));
+    </pre>
+    <button onclick="typeCoercionBtn()">run it</button>
+    <script type="module" src="../js/jsPro.js"></script>
 </body>
 </html>
