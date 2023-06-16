@@ -22,3 +22,21 @@
     background-color: gold;
 }
 /* -------------------------------------- */
+#indexeddbGetUser * {
+    padding: 20px;
+    text-align: center;
+}
+#indexeddbGetUser tr th {
+    background-color: darkgreen;
+    color: lightgreen;
+}
+#indexeddbGetUser tr:nth-child(even) {
+    background-color: lightgreen;
+}
+#indexeddbGetUser tr:nth-child(odd) {
+    background-color: aquamarine;
+}
+#indexeddbGetUser button {
+    padding: 5px;
+    background-color: inherit;
+}

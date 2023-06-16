@@ -155,7 +155,7 @@ function arrowFunctionBtn () {
     const arrowFunctionSumPowOneLine = (num1, num2, num3) => Math.pow((num1 + num2), num3);
     console.log(arrowFunctionSumPowOneLine(1, 1, 10));
 
-    // for an entry don't use ()
+    // for an parameter don't use ()
     const arrowFunctionNumPlus = num => num + num
     console.log(arrowFunctionNumPlus(5));
     
@@ -342,9 +342,9 @@ const andOrFunction = () => {
 // can export default with write "export default 'name'" and import this with write "import 'anyName' from 'address'"
 // for importing write "import { 'things you want import' } from 'address'"
 // for importing all of export things write "import * as 'name' from 'address'" and for use them write name.thingsName
-import defaultExportLet from './modules/modules.js'
-import * as allExportThings from './modules/modules.js'
-import { modulesLet, modulesFunction as logFunctionFromModules } from './modules/modules.js'
+// import defaultExportLet from './modules/modules.js'
+// import * as allExportThings from './modules/modules.js'
+// import { modulesLet, modulesFunction as logFunctionFromModules } from './modules/modules.js'
 const modulesFunctionBtn = () => {
     console.log(defaultExportLet);
     console.log(modulesLet);
@@ -358,6 +358,248 @@ const typeCoercionBtn = () => {
     console.log(Boolean(0 == '0'));
     // explicit
     console.log(Number("0"), typeof(Number("0")));
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// indexed db
+let db = null
+const indexedDBbtn = () => {
+    let testIndexedDB = indexedDB.open('test', 7);
+
+    // when have an error in database:
+    testIndexedDB.addEventListener('error', (err) => console.error('indexedDB.open error:', err))
+
+    // when open database success: 
+    testIndexedDB.addEventListener('success', (event) => {
+        db = event.target.result;
+        getUsers()
+        console.log('indexedDB.open success:', event)
+    })
+
+    // when database version update:
+    testIndexedDB.addEventListener('upgradeneeded', (event) => {
+        console.log('upgradeneeded:', event)
+
+        // create and delete store:
+        db = event.target.result;
+        if (!db.objectStoreNames.contains('users')) {
+            db.createObjectStore('users', {keyPath: 'id'})
+            console.log('users store created');
+        } else {
+            console.log('users store already existed');
+        }
+        if (!db.objectStoreNames.contains('admin')) {
+            db.createObjectStore('admin')
+            console.log('admin store created');
+        }
+        db.deleteObjectStore('admin')
+        console.log('admin store deleted');
+    })
+
+    // add item in store of indexed db
+    const indexeddbAddUser = $.getElementById('indexeddbAddUser');
+    const indexeddbAddUsername = $.getElementById('indexeddbAddUsername');
+    const indexeddbAddPassword = $.getElementById('indexeddbAddPassword');
+    const indexeddbAddEmail = $.getElementById('indexeddbAddEmail');
+    const indexeddbAddSubmit = $.getElementById('indexeddbAddSubmit');
+    indexeddbAddUsername.removeAttribute('disabled')
+    indexeddbAddPassword.removeAttribute('disabled')
+    indexeddbAddEmail.removeAttribute('disabled')
+    indexeddbAddSubmit.removeAttribute('disabled')
+    indexeddbAddUser.addEventListener('submit', event => {
+        event.preventDefault();
+        let newUserObject = {
+            id: Math.floor(Math.random() * 10000),
+            name: indexeddbAddUsername.value,
+            password: indexeddbAddPassword.value,
+            email: indexeddbAddEmail.value
+        }
+
+        let dbTx = createTx('users', 'readwrite');
+
+        let dbStore = dbTx.objectStore('users');
+        let addRequest = dbStore.add(newUserObject);
+        addRequest.addEventListener('error', err => console.error('dbStore.add(newUserObject) error:', err))
+        addRequest.addEventListener('success', event => {
+            console.log('dbStore.add(newUserObject) success:', event)
+            clearInputs();
+            getUsers();
+        })
+    })
+    function clearInputs () {
+        indexeddbAddUsername.value = '';
+        indexeddbAddPassword.value = '';
+        indexeddbAddEmail.value = '';
+    }
+}
+// get item in store of indexed db
+const indexeddbGetUser = $.getElementById('indexeddbGetUser');
+function getUsers () {
+    let dbTx = createTx('users', 'readonly');
+
+    let dbStore = dbTx.objectStore('users');
+    let getRequest = dbStore.getAll();
+    getRequest.addEventListener('error', err => console.error('dbStore.getAll() error:', err))
+    getRequest.addEventListener('success', event => {
+        console.log('dbStore.getAll() success:', event)
+
+        let usersArray = event.target.result;
+        indexeddbGetUser.innerHTML = `
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>`
+        indexeddbGetUser.innerHTML += usersArray.map(user => {
+            return `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.password}</td>
+                <td>${user.email}</td>
+                <td><button onclick="indexeddbRemoveUser(${user.id})">Remove</button></td>
+            </tr>`
+        }).join('')
+    })
+}
+// createTx function
+function createTx (storeName, transactionMode) {
+    let dbTx = db.transaction(storeName, transactionMode)
+    dbTx.addEventListener('error', err => console.error('transaction error:', err))
+    dbTx.addEventListener('complete', event => console.log('transaction complete:', event))
+    return dbTx;
+}
+// delete item in store of indexed db
+function indexeddbRemoveUser (ID) {
+    let dbTx = createTx('users', 'readwrite');
+    let dbStore = dbTx.objectStore('users');
+    let deleteRequest = dbStore.delete(ID);
+    deleteRequest.addEventListener('error', err => console.error('dbStore.delete(ID) error:', err))
+    deleteRequest.addEventListener('success', event => console.log('dbStore.delete(ID) success:', event))
+    getUsers();
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// regex
+const regexFunctionBtn = () => {
+    // is there this word or not
+    let regexCode = /Hello/
+    let text = "Hello to every one"
+    console.log(regexCode.test(text));
+    // is there any word with firs letter H and second and third letter any character and fourth letter l
+    regexCode = /H..l/
+    text = "Heello to every one"
+    console.log(regexCode.test(text));
+    // is there any word with firs letter H and any character in middle and last letter l
+    regexCode = /H.+l/
+    text = "Heeeeeeeeeeeeeeeeeeeeeeello to every one"
+    console.log(regexCode.test(text));
+    // a exercise with regex: check email
+    regexCode = /.+@.+.com/
+    text = prompt('your email:\nLike: skafj@aklf.com')
+    alert('your email format is ' + regexCode.test(text));
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// this
+// this in event and addEventListener
+function thisInEventBtn (el) {
+    console.log(el)
+}
+const thisBtn = $.getElementById('thisBtn')
+thisBtn.addEventListener('click', function (el = this) {
+    console.log(el)
+})
+// this in function
+const thisInFunctionBtn = () => {
+    console.log(this)
+    function thisInFunction () {
+        console.log(this);
+    }
+    thisInFunction()
+}
+// this in object
+const thisInObject = () => {
+    let thisInObject = {
+        id: 1,
+        name: 'Mahdi',
+        age: 18,
+        thisFunc: function() {
+            console.log(this);
+        }
+    }
+    thisInObject.thisFunc()
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// call , apply , bind
+const callApplyBindBtn = () => {
+    let user = {
+        id: 1,
+        name: 'Mahdi',
+    }
+    let user2 = {
+        id: 2,
+        name: 'Soheil',
+    }
+    
+    function showUser (age, city) {console.log('id: ' + this.id + ' - name: ' + this.name + ' - age: ' + age + ' - city: ' + city)}
+    
+    showUser.call(user, 18, 'Esfahan')
+    showUser.call(user2, 31, 'Esfahan')
+
+    showUser.apply(user, [18, 'Esfahan'])
+    showUser.apply(user2, [31, 'Esfahan'])
+
+    // bind is a HOF
+    showUser.bind(user, 18, 'Esfahan')()
+    let showUserFunction = showUser.bind(user2, 31, 'Esfahan')
+    showUserFunction()
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// constructor function. can't use arrow function for constructor
+const constructorFunctionBtn = () => {
+function User (userID, userName, userBrithYear) {
+    this.id = userID;
+    this.name = userName;
+    this.brithYear = userBrithYear;
+
+    this.getID = function () {
+        return this.id
+    }
+    this.getName = function () {
+        return this.name
+    }
+    this.getBrithYear = function () {
+        return this.brithYear
+    }
+    this.setID = function (newID) {
+        this.id = newID
+    }
+    this.setName = function (newName) {
+        this.name = newName
+    }
+    this.setBrithYear = function (newBrithYear) {
+        this.brithYear = newBrithYear
+    }
+}
+let userMahdi = new User(1, 'Mahdi', 2005);
+console.log(userMahdi.getName());
+console.log(userMahdi);
+
+let userMohammadMahdi = new User(2, 'Mohammad Mahdi', 2005);
+console.log(userMohammadMahdi.getName());
+console.log(userMohammadMahdi);
+userMohammadMahdi.setBrithYear(2004);
+console.log(userMohammadMahdi.getName(), 'after setBirhtYear');
+console.log(userMohammadMahdi);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// constructor variable. don't use constructor for variable
+function constructorVariableBtn () {
+    let name = "Mahdi";
+    console.log('let name = "Mahdi" :', name);
+    let Name = new String("Mahdi");
+    console.log('let Name = new String("Mahdi") :', Name);
+    console.log('name === Name :', name === Name);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 
