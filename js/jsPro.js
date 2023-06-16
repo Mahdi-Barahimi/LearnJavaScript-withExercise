@@ -322,7 +322,8 @@ const numericSeparatorBtn = () => {
     console.log("total price", computerPrice + postalPrice);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// && and ||
+// && and ||+
+// || ignore all 'false' values
 const andOrFunction = () => {
     let andOrBoolean = true;
     
@@ -332,8 +333,10 @@ const andOrFunction = () => {
     andOrBoolean || console.log('andOrBoolean. (||)');
     !andOrBoolean || console.log('!andOrBoolean. (||)');
 
-    let newBoolean = andOrBoolean || false
-    console.log(newBoolean);
+    let newBoolean = andOrBoolean || 0;
+    console.log('newBoolean: ', newBoolean);
+    newBoolean = andOrBoolean && 0;
+    console.log('newBoolean: ', newBoolean);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // modules : export , import
@@ -600,6 +603,58 @@ function constructorVariableBtn () {
     let Name = new String("Mahdi");
     console.log('let Name = new String("Mahdi") :', Name);
     console.log('name === Name :', name === Name);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// nullish operator
+// it's like || but just ignore null and undefinde. || ignore all "false" valuse.
+// can't use || and ?? together. should put one of them in ()
+const nullishBtn = () => {
+    let falseValue = NaN;
+    let check = falseValue ?? 1
+    console.log(check);
+    
+    falseValue = null;
+    check = falseValue ?? 1
+    console.log(check);
+    
+    falseValue = undefined;
+    check = falseValue ?? 1
+    console.log(check);
+
+    check = (falseValue || 0) ?? 1
+    console.log(check);
+
+    check = falseValue || (NaN ?? 1)
+    console.log(check);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// optional chaining
+const optionalChainingBtn = () => {
+    user = {
+        name: "Mahdi",
+        address: {
+            country: "Iran",
+        }
+    }
+    userStreet = user.address.city ? user.address.city.street : undefined
+    console.log(userStreet);
+
+    // shortly with optional chaining
+    userStreet = user.address.city?.street;
+    console.log(userStreet);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// object entries
+const objectEntriesBtn = () => {
+    let animal = {
+        id: 1,
+        name: "cat",
+    }
+    let animalArray = Object.entries(animal);
+    console.log(animalArray[1][1]);
+    for (const animalProperty of animalArray) { // for of just for array
+        console.log(`${animalProperty[0]}: ${animalProperty[1]}`);
+    }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 

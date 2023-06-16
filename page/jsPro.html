@@ -367,18 +367,23 @@
     </pre>
     <button onclick="numericSeparatorBtn()">run it</button>
     <hr>
-    <p>&& and ||</p>
+    <p>
+        && and ||<br>
+        || ignore all 'false' values
+    </p>
     <pre>
         let andOrBoolean = true;
-        
+    
         andOrBoolean && console.log('andOrBoolean. (&&)');
         !andOrBoolean && console.log('!andOrBoolean. (&&)');
-
+        
         andOrBoolean || console.log('andOrBoolean. (||)');
         !andOrBoolean || console.log('!andOrBoolean. (||)');
-        
-        let newBoolean = andOrBoolean || false
-        console.log(newBoolean);
+    
+        let newBoolean = andOrBoolean || 0;
+        console.log('newBoolean: ', newBoolean);
+        newBoolean = andOrBoolean && 0;
+        console.log('newBoolean: ', newBoolean);
     </pre>
     <button onclick="andOrFunction()">run it</button>
     <hr>
@@ -662,6 +667,63 @@
         console.log('name === Name :', name === Name);
     </pre>
     <button onclick="constructorVariableBtn()">run it</button>
+    <hr>
+    <p>
+        nullish operator<br>
+        it's like || but just ignore null and undefinde. || ignore all "false" valuse.<br>
+        can't use || and ?? together. should put one of them in ()
+    </p>
+    <pre>
+        let falseValue = NaN;
+        let check = falseValue ?? 1
+        console.log(check);
+        
+        falseValue = null;
+        check = falseValue ?? 1
+        console.log(check);
+        
+        falseValue = undefined;
+        check = falseValue ?? 1
+        console.log(check);
+    
+        check = (falseValue || NaN) ?? 1
+        console.log(check);
+        
+        check = falseValue || (NaN ?? 1)
+        console.log(check);
+    </pre>
+    <button onclick="nullishBtn()">run it</button>
+    <hr>
+    <p>optional chaining</p>
+    <pre>
+        user = {
+            name: "Mahdi",
+            address: {
+                country: "Iran",
+            }
+        }
+        userStreet = user.address.city ? user.address.city.street : undefined
+        console.log(userStreet);
+        
+        // shortly with optional chaining
+        userStreet = user.address.city?.street;
+        console.log(userStreet);
+    </pre>
+    <button onclick="optionalChainingBtn()">run it</button>
+    <hr>
+    <p>object entries</p>
+    <pre>
+        let animal = {
+            id: 1,
+            name: "cat",
+        }
+        let animalArray = Object.entries(animal);
+        console.log(animalArray[1][1]);
+        for (const animalProperty of animalArray) { // for of just for array
+            console.log(`${animalProperty[0]}: ${animalProperty[1]}`);
+        }
+    </pre>
+    <button onclick="objectEntriesBtn()">run it</button>
     <script  src="../js/jsPro.js"></script>
     <!-- type="module" -->
 </body>
